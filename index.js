@@ -12,13 +12,24 @@ if (!databaseUri) {
 }
 
 var api = new ParseServer({
-  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
+  databaseURI: databaseUri || 'mongodb://xpensetag-test:test@ds037272.mlab.com:37272/xpensetag-test',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
-  appId: process.env.APP_ID || 'myAppId',
-  masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
+  appId: process.env.APP_ID || 'appId',
+  masterKey: process.env.MASTER_KEY || 'masterKey', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   liveQuery: {
-    classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
+    classNames: [] // List of classes to support for query subscriptions
+  },
+  push: {
+    android: {
+      senderId: '303038234133',
+      apiKey: 'AIzaSyAG-Vqkv3I0YXYGWdbjtqo3TnpCo60h3bQ '
+    },
+    /*ios: {
+      pfx: '/file/path/to/XXX.p12',
+      bundleId: '',
+      production: false
+    }*/
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
