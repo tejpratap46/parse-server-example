@@ -30,6 +30,17 @@ var api = new ParseServer({
       bundleId: '',
       production: false
     }*/
+  },
+  appName: 'AppName',
+  publicServerURL: 'http://ec2-52-87-221-80.compute-1.amazonaws.com:1337/parse',
+  verifyUserEmails: true,
+  emailAdapter: {
+    module: 'parse-server-simple-mailgun-adapter',
+    options: {
+        fromAddress: 'mymail@example.com',
+        apiKey: 'key-3506239551cfd786e4793942f441cb89',
+        domain: 'example.com'
+    }
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
