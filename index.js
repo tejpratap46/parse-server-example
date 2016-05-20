@@ -3,7 +3,7 @@
 
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
-var S3Adapter = require('parse-server/S3Adapter');
+var S3Adapter = require('parse-server').S3Adapter;
 var path = require('path');
 var SimpleSendGridAdapter = require('parse-server-sendgrid-adapter');
 
@@ -41,14 +41,11 @@ var api = new ParseServer({
     fromAddress: 'test@example.com',
   }),
   // filesAdapter: new S3Adapter(
-  //   "KEY",
-  //   "SECRET_KEY",
-  //   {
-  //   	bucket: "my-bucket-name",
-  //   	bucketPrefix: "some-folder/",
-  //   	directAccess: true
-  //   }
-  // )
+  //   "AWS_ACCESS_KEY_ID",
+  //   "AWS_SECRET_ACCESS_KEY",
+  //   "BUCKET_NAME",
+  //   { directAccess: true }
+  // ),
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
