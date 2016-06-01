@@ -16,9 +16,16 @@ if (!databaseUri) {
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://xpensetag-test:test@ds037272.mlab.com:37272/xpensetag-test',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
-  appId: process.env.APP_ID || 'appId',
-  masterKey: process.env.MASTER_KEY || 'masterKey', //Add your master key here. Keep it secret!
+  appId: process.env.APP_ID || 'appId', // The application id to host with this server instance. You can use any arbitrary string. For migrated apps, this should match your hosted Parse app.
+  masterKey: process.env.MASTER_KEY || 'masterKey', // The master key to use for overriding ACL security. You can use any arbitrary string. Keep it secret! For migrated apps, this should match your hosted Parse app.
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
+  clientKey: process.env.CLIENT_KEY || 'optionalClientKey',
+  javascriptKey: process.env.JAVASCRIPT_KEY || 'optionalJavascriptKey',
+  restAPIKey: process.env.REST_API_KEY || 'optionalRestApiKey',
+  dotNetKey: process.env.DOT_NET_KEY || 'optionalDotNetKey',
+  fileKey: process.env.FILE_KEY || 'optionalFileKey',
+  allowClientClassCreation: true,
+  enableAnonymousUsers: true,
   liveQuery: {
     classNames: [] // List of classes to support for query subscriptions
   },
